@@ -1,6 +1,9 @@
-(ns duct.logger.timbre)
+(ns duct.logger.timbre
+  (:require [integrant.core :as ig]
+            [taoensso.timbre :as timbre]))
 
-(defn foo
-  "I don't do a whole lot."
-  [x]
-  (println x "Hello, World!"))
+(defmethod ig/init-key ::println [_ options]
+  (timbre/println-appender options))
+
+(defmethod ig/init-key ::spit [_ options]
+  (timbre/spit-appender options))
