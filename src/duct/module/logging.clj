@@ -9,7 +9,7 @@
   (fn [config]
     (-> config
         (assoc-in-default [:duct.logger/timbre :level] :info)
-        (assoc-in-default [:duct.logger/timbre :appenders :print] (ig/ref ::timbre/print))
-        (assoc-in-default [::timbre/print :stream] :auto)
+        (assoc-in-default [:duct.logger/timbre :appenders :println] (ig/ref ::timbre/println))
+        (assoc-in-default [::timbre/println :stream] :auto)
         (web/add-middleware ::mw/binding         (ig/ref :duct.logger/timbre))
         (web/add-middleware ::mw/request-logging (ig/ref :duct.logger/timbre)))))
