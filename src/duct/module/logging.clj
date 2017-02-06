@@ -11,4 +11,5 @@
         (assoc-in-default [:duct.logger/timbre :level] :info)
         (assoc-in-default [:duct.logger/timbre :appenders :print] (ig/ref ::timbre/print))
         (assoc-in-default [::timbre/print :stream] :auto)
-        (web/add-middleware ::mw/binding (ig/ref :duct.logger/timbre)))))
+        (web/add-middleware ::mw/binding         (ig/ref :duct.logger/timbre))
+        (web/add-middleware ::mw/request-logging (ig/ref :duct.logger/timbre)))))
