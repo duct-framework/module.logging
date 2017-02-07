@@ -14,7 +14,7 @@
   "Log each request using the specified logging config."
   [handler config]
   (fn [request]
-    (timbre/info [(:request-method request) (:uri request)])
+    (timbre/log* config :info [(:request-method request) (:uri request)])
     (handler request)))
 
 (defmethod ig/init-key ::binding [_ config]
