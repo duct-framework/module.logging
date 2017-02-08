@@ -19,5 +19,5 @@
           (cond->
             (= env :production)  (add-appender ::timbre/println {:stream :auto})
             (= env :development) (add-appender ::timbre/spit    {:fname "logs/dev.log"}))
-          (web/add-middleware ::mw/binding         (ig/ref :duct.logger/timbre))
-          (web/add-middleware ::mw/request-logging (ig/ref :duct.logger/timbre))))))
+          (web/add-middleware conj ::mw/binding         (ig/ref :duct.logger/timbre))
+          (web/add-middleware conj ::mw/request-logging (ig/ref :duct.logger/timbre))))))
