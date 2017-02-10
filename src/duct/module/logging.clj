@@ -2,7 +2,7 @@
   (:require [integrant.core :as ig]
             [duct.core :refer [assoc-in-default]]
             [duct.logger.timbre :as timbre]
-            [duct.middleware.timbre :as mw]
+            [duct.middleware.logging :as mw]
             [duct.module.web :as web]
             [meta-merge.core :refer [meta-merge]]))
 
@@ -19,5 +19,4 @@
           (cond->
             (= env :production)  (add-appender ::timbre/println {:stream :auto})
             (= env :development) (add-appender ::timbre/spit    {:fname "logs/dev.log"}))
-          (web/add-middleware conj ::mw/binding         (ig/ref :duct.logger/timbre))
           (web/add-middleware conj ::mw/request-logging (ig/ref :duct.logger/timbre))))))
