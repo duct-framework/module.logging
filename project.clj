@@ -7,5 +7,5 @@
                  [duct/core "0.9.0-SNAPSHOT"]
                  [duct/module.web "0.1.0-SNAPSHOT"]
                  [duct/logger.timbre "0.1.0-SNAPSHOT"]
-                 [integrant "0.2.0"]
+                 [integrant "0.2.1"]
                  [meta-merge "1.0.0"]])
