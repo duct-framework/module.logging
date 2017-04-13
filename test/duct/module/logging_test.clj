@@ -1,6 +1,6 @@
-(ns duct.logger.timbre-test
+(ns duct.module.logging-test
   (:require [clojure.test :refer :all]
-            [duct.logger.timbre :refer :all]))
+            [duct.module.logging :as logging]))
 
 (deftest a-test
   (testing "FIXME, I fail."
