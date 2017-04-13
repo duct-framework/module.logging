@@ -15,5 +15,8 @@
       (-> config
           (assoc-in-default [:duct.logger/timbre :level] :info)
           (cond->
-            (= env :production)  (add-appender ::timbre/println {:stream :auto})
-            (= env :development) (add-appender ::timbre/spit    {:fname "logs/dev.log"}))))))
+            (= env :production)
+            (add-appender ::timbre/println {})
+            (= env :development)
+            (-> (add-appender ::timbre/spit  {:fname "logs/dev.log"})
+                (add-appender ::timbre/brief {})))))))
