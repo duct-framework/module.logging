@@ -6,5 +6,5 @@
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [duct/core "0.1.0-SNAPSHOT"]
                  [duct/logger.timbre "0.1.0-SNAPSHOT"]
-                 [integrant "0.2.1"]
+                 [integrant "0.3.3"]
                  [meta-merge "1.0.0"]])
