@@ -16,11 +16,13 @@
 
 (defmethod ig/init-key :duct.module/logging [_ options]
   (fn [config]
-    (let [config (set-default-log-level config :info)]
-      (case (get-environment config options)
-        :production
-        (-> config (add-appender ::timbre/println {}))
-        :development
-        (-> config
-            (add-appender ::timbre/spit  {:fname "logs/dev.log"})
-            (add-appender ::timbre/brief {}))))))
+    (case (get-environment config options)
+      :production
+      (-> config
+          (set-default-log-level :info)
+          (add-appender ::timbre/println {}))
+      :development
+      (-> config
+          (set-default-log-level :debug)
+          (add-appender ::timbre/spit  {:fname "logs/dev.log"})
+          (add-appender ::timbre/brief {})))))
