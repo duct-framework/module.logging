@@ -1,22 +1,26 @@
 (ns duct.module.logging
-  (:require [integrant.core :as ig]
-            [duct.core :refer [assoc-in-default]]
+  (:require [duct.core :as core]
+            [duct.logger :as logger]
             [duct.logger.timbre :as timbre]
-            [meta-merge.core :refer [meta-merge]]))
+            [integrant.core :as ig]))
 
-(defn add-appender [config key options]
-  (-> config
-      (assoc-in-default [:duct.logger/timbre :appenders key] (ig/ref key))
-      (update key (partial meta-merge options))))
+(defn- get-environment [config options]
+  (:enviroment options (::core/environment config :production)))
+
+(defn- set-default-log-level [config level]
+  (core/merge-configs config {::logger/timbre ^:displace {:level level}}))
+
+(defn- add-appender [config key options]
+  (core/merge-configs config {::logger/timbre {:appenders {key (ig/ref key)}}
+                              key options}))
 
 (defmethod ig/init-key :duct.module/logging [_ options]
   (fn [config]
-    (let [env (:enviroment options (:duct.core/environment config :production))]
-      (-> config
-          (assoc-in-default [:duct.logger/timbre :level] :info)
-          (cond->
-            (= env :production)
-            (add-appender ::timbre/println {})
-            (= env :development)
-            (-> (add-appender ::timbre/spit  {:fname "logs/dev.log"})
-                (add-appender ::timbre/brief {})))))))
+    (let [config (set-default-log-level config :info)]
+      (case (get-environment config options)
+        :production
+        (-> config (add-appender ::timbre/println {}))
+        :development
+        (-> config
+            (add-appender ::timbre/spit  {:fname "logs/dev.log"})
+            (add-appender ::timbre/brief {}))))))
