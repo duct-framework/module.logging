@@ -1,14 +1,51 @@
-# duct.logger.timbre
+# Duct module.logging
 
-A Clojure library designed to ... well, that part is up to you.
+A [Duct][] module that adds logging to a configuration, using the
+[logger.timbre][] library.
+
+[duct]: https://github.com/duct-framework/duct
+[logger.timbre]: https://github.com/duct-framework/logger.timbre
+
+## Installation
+
+To install, add the following to your project `:dependencies`:
+
+    [duct/module.logging "0.1.0-SNAPSHOT"]
 
 ## Usage
 
-FIXME
+To add this module to your configuration, add a reference to
+`:duct.module/logging` to your `:duct.core/modules` vector:
+
+```clojure
+{:duct.core/modules [#ref :duct.module/logging]
+ :duct.module/logging {}}
+```
+
+The module adds the `:duct.logger/timbre` logger to the configuration,
+and sets up different appenders depending on whether the environment
+is `:development` or `:production`
+
+The environment can be set by the top-level `:duct.core/environment`
+key:
+
+```clojure
+{:duct.core/environment :production}
+```
+
+Or by adding an `:environment` key to the logging module:
+
+```clojure
+{:duct.module/logging {:environment :development}}
+```
+
+In production, the full logs are sent to `STDOUT`. In development, the
+logs are sent to the `logs/dev.log` file, and in a very terse form to
+`STDOUT`.
 
 ## License
 
-Copyright © 2017 FIXME
+Copyright © 2017 James Reeves
 
 Distributed under the Eclipse Public License either version 1.0 or (at
 your option) any later version.
