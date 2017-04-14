@@ -1,4 +1,4 @@
-(defproject duct/module.logging "0.1.0-SNAPSHOT"
+(defproject duct/module.logging "0.1.0"
   :description "Logging module for Duct"
   :url "https://github.com/duct-framework/module.logging"
   :license {:name "Eclipse Public License"
