@@ -1,5 +1,7 @@
 # Duct module.logging
 
+[![Build Status](https://travis-ci.org/duct-framework/module.logging.svg?branch=master)](https://travis-ci.org/duct-framework/module.logging)
+
 A [Duct][] module that adds logging to a configuration, using the
 [logger.timbre][] library.
 
