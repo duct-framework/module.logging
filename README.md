@@ -12,7 +12,7 @@ A [Duct][] module that adds logging to a configuration, using the
 
 To install, add the following to your project `:dependencies`:
 
-    [duct/module.logging "0.1.0"]
+    [duct/module.logging "0.1.1"]
 
 ## Usage
 
