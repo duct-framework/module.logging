@@ -36,4 +36,4 @@
                       :appenders {::timbre/spit  (ig/ref ::timbre/spit)
                                   ::timbre/brief (ig/ref ::timbre/brief)}}
                      ::timbre/spit  {:fname "logs/dev.log"}
-                     ::timbre/brief {}}))))))
+                     ::timbre/brief {:min-level :report}}))))))
