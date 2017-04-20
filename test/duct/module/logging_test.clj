@@ -36,4 +36,18 @@
                       :appenders {::timbre/spit  (ig/ref ::timbre/spit)
                                   ::timbre/brief (ig/ref ::timbre/brief)}}
                      ::timbre/spit  {:fname "logs/dev.log"}
-                     ::timbre/brief {:min-level :report}}))))))
+                     ::timbre/brief {:min-level :report}})))))
+
+  (testing "config with min log level and file name"
+    (let [config (assoc base-config
+                        ::core/environment :development
+                        ::timbre/brief {:min-level :info}
+                        ::timbre/spit  {:fname "custom.log"})]
+      (is (= (core/prep config)
+             (merge config
+                    {:duct.logger/timbre
+                     {:level     :debug
+                      :appenders {::timbre/spit  (ig/ref ::timbre/spit)
+                                  ::timbre/brief (ig/ref ::timbre/brief)}}
+                     ::timbre/spit  {:fname "custom.log"}
+                     ::timbre/brief {:min-level :info}}))))))
