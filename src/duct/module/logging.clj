@@ -21,7 +21,7 @@
                            ::timbre/brief (ig/ref ::timbre/brief)}}
    ::timbre/spit
    {:fname (merge/displace "logs/dev.log")}
-   ::timbre/brief {:min-level :report}})
+   ::timbre/brief {:min-level (merge/displace :report)}})
 
 (def ^:private env-configs
   {:production prod-config
