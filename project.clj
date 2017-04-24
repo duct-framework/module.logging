@@ -6,4 +6,4 @@
   :dependencies [[org.clojure/clojure "1.8.0"]
                  [duct/core "0.1.1"]
                  [duct/logger.timbre "0.1.1"]
-                 [integrant "0.3.3"]])
+                 [integrant "0.4.0"]])
