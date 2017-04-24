@@ -6,8 +6,7 @@
             [integrant.core :as ig]))
 
 (def base-config
-  {:duct.core/modules   [(ig/ref :duct.module/logging)]
-   :duct.module/logging {}})
+  {:duct.module/logging {}})
 
 (deftest module-test
   (testing "blank config"
