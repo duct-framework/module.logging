@@ -16,12 +16,11 @@ To install, add the following to your project `:dependencies`:
 
 ## Usage
 
-To add this module to your configuration, add a reference to
-`:duct.module/logging` to your `:duct.core/modules` vector:
+To add this module to your configuration, add a the
+`:duct.module/logging` key to your configuration:
 
 ```clojure
-{:duct.core/modules [#ref :duct.module/logging]
- :duct.module/logging {}}
+{:duct.module/logging {}}
 ```
 
 The module adds the `:duct.logger/timbre` logger to the configuration,
