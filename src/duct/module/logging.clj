@@ -27,8 +27,6 @@
   {:production prod-config
    :development dev-config})
 
-(derive :duct.module/logging :duct/module)
-
 (defmethod ig/init-key :duct.module/logging [_ options]
   {:fn (fn [config]
          (core/merge-configs config (env-configs (get-environment config options))))})
