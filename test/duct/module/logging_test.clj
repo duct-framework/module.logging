@@ -2,8 +2,9 @@
   (:require [clojure.test :refer :all]
             [duct.core :as core]
             [duct.module.logging :as logging]
-            [duct.logger.timbre :as timbre]
             [integrant.core :as ig]))
+
+(core/load-hierarchy)
 
 (def base-config
   {:duct.module/logging {}})
