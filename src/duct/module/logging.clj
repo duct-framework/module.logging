@@ -27,5 +27,4 @@
    :development dev-config})
 
 (defmethod ig/init-key :duct.module/logging [_ options]
-  {:fn (fn [config]
-         (core/merge-configs config (env-configs (get-environment config options))))})
+  #(core/merge-configs % (env-configs (get-environment % options))))
