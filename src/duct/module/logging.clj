@@ -4,7 +4,7 @@
             [integrant.core :as ig]))
 
 (defn- get-environment [config options]
-  (:enviroment options (::core/environment config :production)))
+  (:environment options (::core/environment config :production)))
 
 (def ^:private prod-config
   {:duct.logger/timbre

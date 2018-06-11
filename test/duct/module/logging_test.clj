@@ -41,6 +41,17 @@
               :duct.core/environment :development}
              (core/build-config config)))))
 
+  (testing "environment override"
+    (let [config {:duct.module/logging {:environment :development}}]
+      (is (= {:duct.logger/timbre
+              {:level :debug
+               :appenders
+               {:duct.logger.timbre/spit  (ig/ref :duct.logger.timbre/spit)
+                :duct.logger.timbre/brief (ig/ref :duct.logger.timbre/brief)}}
+              :duct.logger.timbre/spit  {:fname "logs/dev.log"}
+              :duct.logger.timbre/brief {:min-level :report}}
+             (core/build-config config)))))
+
   (testing "config with min log level and file name"
     (let [config (assoc base-config
                         :duct.profile/base
