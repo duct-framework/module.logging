@@ -46,7 +46,7 @@ logs are sent to the `logs/dev.log` file, and in a very terse form to
 
 ## License
 
-Copyright © 2018 James Reeves
+Copyright © 2019 James Reeves
 
 Distributed under the Eclipse Public License either version 1.0 or (at
 your option) any later version.
