@@ -41,6 +41,18 @@
               :duct.core/environment :development}
              (core/build-config config)))))
 
+  (testing "test environment"
+    (let [config (assoc base-config
+                        :duct.profile/base
+                        {:duct.core/environment :test})]
+      (is (= {:duct.logger/timbre
+              {:level :debug
+               :appenders
+               {:duct.logger.timbre/spit (ig/ref :duct.logger.timbre/spit)}}
+              :duct.logger.timbre/spit {:fname "logs/test.log"}
+              :duct.core/environment :test}
+             (core/build-config config)))))
+
   (testing "environment override"
     (let [config {:duct.module/logging {:environment :development}}]
       (is (= {:duct.logger/timbre
