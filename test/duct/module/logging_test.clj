@@ -7,7 +7,7 @@
   (let [config {:duct.module/logging {}}]
     (is (= {:duct.logger/simple
             {:appenders [{:type :stdout}]}}
-           (ig/expand config (ig/deprofile [:prod]))))
+           (ig/expand config (ig/deprofile [:main]))))
     (is (= {:duct.logger/simple
             {:appenders [{:type :file, :path "logs/test.log"}]}}
            (ig/expand config (ig/deprofile [:test]))))
@@ -15,4 +15,4 @@
             {:appenders
              [{:type :stdout, :timestamps? false, :levels #{:report}}
               {:type :file, :path "logs/dev.log"}]}}
-           (ig/expand config (ig/deprofile [:dev]))))))
+           (ig/expand config (ig/deprofile [:repl]))))))
