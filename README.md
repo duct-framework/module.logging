@@ -1,50 +1,49 @@
 # Duct module.logging [![Build Status](https://github.com/duct-framework/module.logging/actions/workflows/test.yml/badge.svg)](https://github.com/duct-framework/logger.simple/actions/workflows/test.yml)
 
 A [Duct][] module that adds logging to a configuration, using the
-[logger.timbre][] library.
+[logger.simple][] library.
+
+This current version is experimental and will only work with the new
+[duct.main][] tool. The artifact group name has been changed to prevent
+accidental upgrades.
 
 [duct]: https://github.com/duct-framework/duct
-[logger.timbre]: https://github.com/duct-framework/logger.timbre
+[logger.simple]: https://github.com/duct-framework/logger.simple
+[duct.main]: https://github.com/duct-framework/duct.main
 
 ## Installation
 
-To install, add the following to your project `:dependencies`:
+Add the following dependency to your deps.edn file:
+
+    org.duct-framework/module.logging {:mvn/version "0.5.0"}
+
+Or to your Leiningen project file:
 
     [org.duct-framework/module.logging "0.5.0"]
 
 ## Usage
 
-To add this module to your configuration, add a the
-`:duct.module/logging` key to your configuration:
+To add this module to your configuration, add the `:duct.module/logging`
+key to your Duct configuration:
 
 ```clojure
 {:duct.module/logging {}}
 ```
 
-The module adds the `:duct.logger/timbre` logger to the configuration,
-and sets up different appenders depending on whether the environment
-is `:development` or `:production`
+This module uses the Integrant [expand][] function to add the
+`:duct.logger/simple` logger to the configuration. It will configured
+differently depending on the active Integrant profile:
 
-The environment can be set by the top-level `:duct.core/environment`
-key:
+- `:repl` - write all logs to "logs/dev.log" and `:report` level logs to
+            STDOUT in brief
+- `:test` - write all logs to "logs/test.log"
+- `:main` - write all logs in full to STDOUT
 
-```clojure
-{:duct.core/environment :production}
-```
-
-Or by adding an `:environment` key to the logging module:
-
-```clojure
-{:duct.module/logging {:environment :development}}
-```
-
-In production, the full logs are sent to `STDOUT`. In development, the
-logs are sent to the `logs/dev.log` file, and in a very terse form to
-`STDOUT`.
+[expand]: https://github.com/weavejester/integrant#expanding
 
 ## License
 
-Copyright © 2019 James Reeves
+Copyright © 2024 James Reeves
 
 Distributed under the Eclipse Public License either version 1.0 or (at
 your option) any later version.
