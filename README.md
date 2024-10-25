@@ -10,7 +10,7 @@ A [Duct][] module that adds logging to a configuration, using the
 
 To install, add the following to your project `:dependencies`:
 
-    [duct/module.logging "0.5.0"]
+    [org.duct-framework/module.logging "0.5.0"]
 
 ## Usage
 
