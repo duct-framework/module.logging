@@ -1,4 +1,4 @@
-# Duct module.logging [![Build Status](https://github.com/duct-framework/module.logging/actions/workflows/test.yml/badge.svg)](https://github.com/duct-framework/logger.simple/actions/workflows/test.yml)
+# Duct Logging Module [![Build Status](https://github.com/duct-framework/module.logging/actions/workflows/test.yml/badge.svg)](https://github.com/duct-framework/logger.simple/actions/workflows/test.yml)
 
 A [Duct][] module that adds logging to a configuration, using the
 [logger.simple][] library.
