@@ -1,0 +1,4 @@
+{:deps {org.clojure/clojure {:mvn/version "1.11.4"}
+        org.duct-framework/logger {:mvn/version "0.3.0"}
+        org.duct-framework/logger.simple {:mvn/version "0.4.2"}
+        integrant/integrant {:mvn/version "0.13.0"}}}
