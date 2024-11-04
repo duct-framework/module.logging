@@ -5,7 +5,7 @@
   {:duct.logger/simple
    (ig/profile
     :repl {:appenders
-           [{:type :stdout, :timestamps? false, :levels #{:report}}
+           [{:type :stdout, :brief? true, :levels #{:report}}
             {:type :file, :path "logs/dev.log"}]}
     :test {:appenders
            [{:type :file, :path "logs/test.log"}]}

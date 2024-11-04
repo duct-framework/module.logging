@@ -13,6 +13,6 @@
            (ig/expand config (ig/deprofile [:test]))))
     (is (= {:duct.logger/simple
             {:appenders
-             [{:type :stdout, :timestamps? false, :levels #{:report}}
+             [{:type :stdout, :brief? true, :levels #{:report}}
               {:type :file, :path "logs/dev.log"}]}}
            (ig/expand config (ig/deprofile [:repl]))))))
