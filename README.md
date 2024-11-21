@@ -23,10 +23,9 @@ Or to your Leiningen project file:
 
 ## Usage
 
-To add this module to your configuration, add the `:duct.module/logging`
-key to your Duct configuration:
+Add the `:duct.module/logging` key to your Duct configuration:
 
-```clojure
+```edn
 {:duct.module/logging {}}
 ```
 
