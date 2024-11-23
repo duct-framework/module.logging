@@ -33,7 +33,7 @@ This module uses the Integrant [expand][] function to add the
 `:duct.logger/simple` logger to the configuration. It will configured
 differently depending on the active Integrant profile:
 
-- `:repl` - write all logs to "logs/dev.log" and `:report` level logs to
+- `:repl` - write all logs to "logs/repl.log" and `:report` level logs to
             STDOUT in brief
 - `:test` - write all logs to "logs/test.log"
 - `:main` - write all logs in full to STDOUT
