@@ -15,11 +15,11 @@ accidental upgrades.
 
 Add the following dependency to your deps.edn file:
 
-    org.duct-framework/module.logging {:mvn/version "0.6.3"}
+    org.duct-framework/module.logging {:mvn/version "0.6.4"}
 
 Or to your Leiningen project file:
 
-    [org.duct-framework/module.logging "0.6.3"]
+    [org.duct-framework/module.logging "0.6.4"]
 
 ## Usage
 
