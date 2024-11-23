@@ -6,7 +6,7 @@
    (ig/profile
     :repl {:appenders
            [{:type :stdout, :brief? true, :levels #{:report}}
-            {:type :file, :path "logs/dev.log"}]}
+            {:type :file, :path "logs/repl.log"}]}
     :test {:appenders
            [{:type :file, :path "logs/test.log"}]}
     :main {:appenders

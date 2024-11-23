@@ -14,5 +14,5 @@
     (is (= {:duct.logger/simple
             {:appenders
              [{:type :stdout, :brief? true, :levels #{:report}}
-              {:type :file, :path "logs/dev.log"}]}}
+              {:type :file, :path "logs/repl.log"}]}}
            (ig/expand config (ig/deprofile [:repl]))))))
