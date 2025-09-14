@@ -1,0 +1,9 @@
+{:duct.module/logging
+ {:doc
+  "A Duct module that adds logging to the configuration using the
+  `:duct.logger/simple` component. Takes no options, but uses a different
+  logging setup depending on the active profile:
+  - `:main` - write all logs in full to STDOUT
+  - `:repl` - write all logs to `logs/repl.log` and `:report` level logs to
+              STDOUT in brief (no timestamp)
+  - `:test` - write all logs to `logs/test.log`"}}
